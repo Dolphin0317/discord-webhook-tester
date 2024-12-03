@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Webhook 測試工具</title>
+    <link rel="stylesheet" href="index.css" />   
+</head>
+<body>
+    <h1>Discord Webhook 測試工具</h1>
+    <form id="webhookForm">
+        <label for="webhookUrl">Webhook URL:</label>
+        <input type="url" id="webhookUrl" placeholder="輸入 Discord Webhook URL" required>
+        
+        <label for="messageContent">訊息內容:</label>
+        <textarea id="messageContent" rows="5" placeholder="輸入訊息內容" required></textarea>
+        
+        <button type="submit">發送</button>
+    </form>
+
+    <div id="responseMessage" style="margin-top: 20px;"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>

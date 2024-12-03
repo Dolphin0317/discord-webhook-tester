@@ -1,11 +1,17 @@
 document.getElementById('webhookForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     
-    const webhookUrl = document.getElementById('webhookUrl').value;
+    //const webhookUrl = document.getElementById('webhookUrl').value;
+    const webhookUrl = "https://discord.com/api/webhooks/1234567890/yourwebhooktoken";
     const messageContent = document.getElementById('messageContent').value;
-    
-    if (!webhookUrl || !messageContent) {
-        alert("請填寫所有欄位！");
+
+     if (!webhookUrl) {
+         alert('請提供合法的 Webhook URL!');
+         return;
+     }
+            
+    if (!messageContent) {
+        alert("請填寫訊息內容！");
         return;
     }
 

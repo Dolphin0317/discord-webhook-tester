@@ -1,11 +1,24 @@
 document.getElementById('webhookForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+    e.preventDefault(); // 防止表單重新加載頁面
+
+    // Base64 解密函數
+        function decodeBase64(encoded) {
+            return decodeURIComponent(
+                atob(encoded)
+                    .split('')
+                    .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                    .join('')
+            );
+        }
     
-    //const webhookUrl = document.getElementById('webhookUrl').value;
-    const webhookUrl = "https://discord.com/api/webhooks/1234567890/yourwebhooktoken";
+    // Base64 加密的 Webhook URL (請替換為您的 Webhook URL 的加密值)
+    const encryptedWebhookUrl = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTIzNDU2Nzg5MC95b3Vyd2ViaG9va3Rva2Vu";
+
+    // 解密 Webhook URL
+    const webhookUrl = decodeBase64(encryptedWebhookUrl);    
     const messageContent = document.getElementById('messageContent').value;
 
-     if (!webhookUrl) {
+     if (!encryptedWebhookUrl) {
          alert('請提供合法的 Webhook URL!');
          return;
      }

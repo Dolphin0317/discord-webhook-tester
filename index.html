@@ -8,14 +8,10 @@
 </head>
 <body>
     <h1>Discord Webhook 測試工具</h1>
-    <form id="webhookForm">
-        <label for="webhookUrl">Webhook URL:</label>
-        <input type="url" id="webhookUrl" placeholder="輸入 Discord Webhook URL" required>
-        
+    <form id="webhookForm" onsubmit="sendMessage(event)">
         <label for="messageContent">訊息內容:</label>
         <textarea id="messageContent" rows="5" placeholder="輸入訊息內容" required></textarea>
-        
-        <button type="submit">發送</button>
+        <button type="submit">發送訊息</button>
     </form>
 
     <div id="responseMessage" style="margin-top: 20px;"></div>

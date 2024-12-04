@@ -1,7 +1,9 @@
 import init, { get_discord_webhook_url } from './pkg/discord_webhook.js';
 
-const dom_respMessage = document.getElementById('responseMessage');
-
+const dom_RespMessage = document.getElementById('responseMessage');
+const dom_MsgContent = document.getElementById('messageContent');
+const dom_SendWebhook = document.getElementById('sendWebhook');
+    
 async function sendWebhook() {
     await init(); // 初始化 WebAssembly 模組
 
@@ -12,7 +14,7 @@ async function sendWebhook() {
         return;
     }
     
-    const messageContent = document.getElementById('messageContent').value;
+    const messageContent = dom_MsgContent.value;
     if (!messageContent) {
         alert("請填寫訊息內容！");
         return;
@@ -46,8 +48,8 @@ async function sendWebhook() {
             color = "red";
         }
 
-        dom_respMessage.textContent = ctx;
-        dom_respMessage.style.color = color;
+        dom_RespMessage.textContent = ctx;
+        dom_RespMessage.style.color = color;
     })
     .then(data => {
         console.log(data)
@@ -55,12 +57,12 @@ async function sendWebhook() {
     .catch(err => {
         console.error('Err');
         
-        dom_respMessage.textContent = `請求失敗: ${err.message}`;
-        dom_respMessage.style.color = "red";
+        dom_RespMessage.textContent = `請求失敗: ${err.message}`;
+        dom_RespMessage.style.color = "red";
     });
 }
 
 // 綁定按鈕事件
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('sendWebhook').addEventListener('click', sendWebhook);
+    dom_SendWebhook.addEventListener('click', sendWebhook);
 });

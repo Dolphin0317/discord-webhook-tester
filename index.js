@@ -64,5 +64,5 @@ async function sendWebhook() {
 
 // 綁定按鈕事件
 document.addEventListener('DOMContentLoaded', () => {
-    sendWebhook();
+    document.getElementById('sendWebhook').addEventListener('click', sendWebhook);
 });

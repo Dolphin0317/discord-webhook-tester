@@ -34,15 +34,23 @@ async function sendWebhook() {
     })
     .then(response => {
         console.log('response');
+        let ctx = '';
+        let color = '';
         
         if (response.ok) {
-            dom_respMessage.textContent = "訊息已成功發送！";
-            dom_respMessage.style.color = "green";
+            ctx = "訊息已成功發送！";
+            color = "green";
         } else {
             let error = new Error(`HTTP 錯誤: ${response.statusText}`);
-            dom_respMessage.textContent = `錯誤: ${error.message}`;
-            dom_respMessage.style.color = "red";
+            ctx = `錯誤: ${error.message}`;
+            color = "red";
         }
+
+        dom_respMessage.textContent = ctx;
+        dom_respMessage.style.color = color;
+    })
+    .then(data => {
+        console.log(data)
     })
     .catch(err => {
         console.error('Err');

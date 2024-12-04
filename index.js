@@ -33,6 +33,8 @@ async function sendWebhook() {
         body: JSON.stringify(payload)
     })
     .then(response => {
+        console.log('response');
+        
         if (response.ok) {
             dom_respMessage.textContent = "訊息已成功發送！";
             dom_respMessage.style.color = "green";
@@ -43,6 +45,8 @@ async function sendWebhook() {
         }
     })
     .catch(err => {
+        console.error('Err');
+        
         dom_respMessage.textContent = `請求失敗: ${err.message}`;
         dom_respMessage.style.color = "red";
     });
@@ -50,5 +54,5 @@ async function sendWebhook() {
 
 // 綁定按鈕事件
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('sendWebhook').addEventListener('submit', sendWebhook);
+    document.getElementById('sendWebhook').addEventListener('click', sendWebhook);
 });

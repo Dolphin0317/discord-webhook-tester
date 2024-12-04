@@ -1,4 +1,4 @@
-import init, { get_webhook_url } from './pkg/webhook_rust_wasm.js';
+import init, { get_webhook_url } from './pkg/pkg/discord_webhook.js';
 
 const dom_respMessage = document.getElementById('responseMessage');
 

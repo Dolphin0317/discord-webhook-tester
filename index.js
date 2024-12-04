@@ -48,7 +48,7 @@ async function sendWebhook() {
     });
 }
 
-/ 綁定按鈕事件
+// 綁定按鈕事件
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sendWebhook').addEventListener('submit', sendWebhook);
 });

@@ -53,3 +53,8 @@ async function sendWebhook() {
       console.error(err_ctx);
   });
 }
+
+// 綁定事件
+document.addEventListener('DOMContentLoaded', () => {
+    sendWebhook();
+});
